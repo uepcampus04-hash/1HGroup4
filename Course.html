@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Programs | UEP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --primary-red: #A81C21;
+    --primary-red-hover: #8A151A;
+    --text-dark: #2D3436;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --primary-orange:#F39C12;
+    --bg-soft:#FAFAFA;
+    --text-light:#636E72;
+    --border-color:#EBEBEB;
+    --glass:rgba(255,255,255,0.7);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    padding-top: 80px;
+    background:var(--bg-soft);
+    color:var(--text-dark);
+}
+
+nav{
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.logo{
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--primary-red);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-links{
+    display: flex;
+    gap: 2rem;
+    align-items:center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover { 
+    color: var(--primary-red); 
+}
+
+.btn{
+    background:var(--primary-red);
+    color:white !important;
+    padding:0.6rem 1.5rem;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.courses-hero{
+    padding:12rem 5% 6rem;
+    text-align:center;
+    background:linear-gradient(135deg,#A81C21,#630D10);
+    color:white;
+}
+
+.courses-hero h1{
+    font-size:3rem;
+    font-weight:800;
+}
+
+.courses-hero span{
+    color:#FFD700;
+}
+
+.courses-hero p{
+    margin-top:1rem;
+    opacity:0.9;
+}
+
+.programs-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:2rem;
+    padding:4rem 5% 6rem;
+}
+
+.program-card{
+    background:var(--glass);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:2rem;
+    border:1px solid rgba(255,255,255,0.4);
+    transition:var(--transition);
+    position:relative;
+    overflow:hidden;
+}
+
+.program-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(90deg,#A81C21,#F39C12);
+}
+
+.program-card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 25px 50px rgba(0,0,0,0.08);
+}
+
+.icon{
+    font-size:2rem;
+    margin-bottom:1rem;
+}
+
+.dept-tag{
+    font-size:0.7rem;
+    font-weight:800;
+    text-transform:uppercase;
+    color:var(--primary-red);
+    margin-bottom:0.5rem;
+}
+
+.program-card h3{
+    font-size:1.3rem;
+    margin-bottom:0.7rem;
+}
+
+.program-card p{
+    color:var(--text-light);
+    font-size:0.9rem;
+    margin-bottom:1.5rem;
+}
+
+.course-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top:1px solid var(--border-color);
+    padding-top:1rem;
+}
+
+.duration{
+    font-size:0.8rem;
+    font-weight:600;
+}
+
+footer{
+    background:#1A1A1A;
+    color:white;
+    padding:2rem;
+    text-align:center;
+}
+
+.fade-up{
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.8s;
+}
+
+.fade-up.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:768px){
+    .nav-links{display:none;}
+    .courses-hero h1{font-size:2.2rem;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="UEP.png" width="30">
+        University Of Eastern Pangasinan
+    </div>
+
+    <div class="nav-links">
+        <a href="Index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="#" style="color: var(--primary-red);">Courses</a>
+        <a href="Contact.html">Contact Us</a>
+        <a href="Admission.html">Admission</a>
+    </div>
+</nav>
+
+<header class="courses-hero fade-up">
+    <h1>Our Academic <span>Programs</span></h1>
+    <p>Expertly designed curricula to prepare you for the global stage.</p>
+</header>
+
+<main class="programs-grid">
+
+    <div class="program-card fade-up">
+        <div class="icon">💻</div>
+        <div class="dept-tag">College of Computing</div>
+        <h3>BS in Information Technology</h3>
+        <p>Master software development, networking, and digital innovation.</p>
+        <div class="course-meta">
+            <span class="duration">4 Years</span>
+        </div>
+    </div>
+
+    <div class="program-card fade-up">
+        <div class="icon">📚</div>
+        <div class="dept-tag">College of Education</div>
+        <h3>Bachelor of Elementary Education</h3>
+        <p>Shape young minds and build the future of education.</p>
+        <div class="course-meta">
+            <span class="duration">4 Years</span>
+        </div>
+    </div>
+
+    <div class="program-card fade-up">
+        <div class="icon">💼</div>
+        <div class="dept-tag">College of Business</div>
+        <h3>BS in Business Administration</h3>
+        <p>Develop leadership and strategic business expertise.</p>
+        <div class="course-meta">
+            <span class="duration">4 Years</span>
+        </div>
+    </div>
+
+    <div class="program-card fade-up">
+        <div class="icon">🧠</div>
+        <div class="dept-tag">College of Computing</div>
+        <h3>BS in Computer Science</h3>
+        <p>Explore AI, algorithms, and advanced computing systems.</p>
+        <div class="course-meta">
+            <span class="duration">4 Years</span>
+        </div>
+    </div>
+
+    <div class="program-card fade-up">
+        <div class="icon">🚓</div>
+        <div class="dept-tag">College of Criminology</div>
+        <h3>BS in Criminology</h3>
+        <p>Study law enforcement and criminal justice systems.</p>
+        <div class="course-meta">
+            <span class="duration">4 Years</span>
+        </div>
+    </div>
+
+    <div class="program-card fade-up">
+        <div class="icon">🏗️</div>
+        <div class="dept-tag">College of Engineering</div>
+        <h3>BS in Civil Engineering</h3>
+        <p>Design and build infrastructure for modern communities.</p>
+        <div class="course-meta">
+            <span class="duration">5 Years</span>
+        </div>
+    </div>
+
+    <div class="program-card fade-up">
+        <div class="icon">🏨</div>
+        <div class="dept-tag">College of Hospitality Management</div>
+        <h3>BS in Hospitality Management</h3>
+        <p>Train for leadership roles in the global tourism, hotel, and restaurant industries.</p>
+        <div class="course-meta">
+            <span class="duration">4 Years</span>
+        </div>
+    </div>
+
+    <div class="program-card fade-up">
+        <div class="icon">🩺</div>
+        <div class="dept-tag">College of Health Sciences</div>
+        <h3>BS in Midwifery</h3>
+        <p>Advance your skills in maternal and child healthcare and clinical practice.</p>
+        <div class="course-meta">
+            <span class="duration">4 Years</span>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 University of Eastern Pangasinan. All Rights Reserved.</p>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}
+});
+});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>

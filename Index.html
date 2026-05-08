@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Eastern Pangasinan | Modern Redesign</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #A81C21;
+            --primary-red-hover: #8A151A;
+            --text-dark: #2D3436;
+            --primary-orange: #F39C12;
+            --secondary-gold: #FFD700;
+            --bg-soft: #F8F9FA;
+            --bg-deep: #1A1A1A;
+            --text-light: #636E72;
+            --surface-white: #FFFFFF;
+            --border-color: #EBEBEB;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --gradient-red: linear-gradient(135deg, #A81C21 0%, #630D10 100%);
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            padding-top: 80px;
+            background-color: var(--bg-soft);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items:center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { 
+            color: var(--primary-red); 
+        }
+
+        .btn {
+            background: var(--primary-red);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--primary-red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(168, 28, 33, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-red) !important;
+            border: 2px solid var(--primary-red);
+        }
+
+        .btn-outline:hover { background: var(--primary-red); color: white !important; }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            margin-top: 60px;
+            gap: 5%;
+        }
+
+        .hero-content { flex: 1; }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span { color: var(--primary-red); }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-visual { flex: 1; }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+        }
+
+        .video-container video { width: 100%; height: 100%; object-fit: cover; }
+
+        .stats-bar {
+            background: var(--bg-deep);
+            color: white;
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h2 { font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 0.5rem; }
+        .stat-item p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+
+        .programs-section { padding: 100px 5%; background: white; }
+        .section-tag { color: var(--primary-red); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: 0.8rem; display: block; margin-bottom: 1rem; }
+        
+        .programs-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+        .programs-header h2 { font-size: 2.5rem; max-width: 600px; }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .program-card:hover {
+            background: var(--gradient-red);
+            transform: translateY(-10px);
+            color: white;
+        }
+
+        .program-card:hover p { color: rgba(255,255,255,0.8); }
+
+        .program-card i { font-size: 2rem; margin-bottom: 1.5rem; display: block; }
+
+        .vision-mission {
+            padding: 100px 5%;
+            background: #fff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .vm-content h2 { font-size: 2.2rem; margin-bottom: 1.5rem; position: relative; }
+        .vm-content h2::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 60px; height: 4px; background: var(--primary-orange); }
+        .vm-card { margin-top: 2rem; padding: 2rem; background: var(--bg-soft); border-radius: 15px; }
+
+        .vm-img img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .enrollment {
+            background: var(--gradient-red);
+            color: white;
+            text-align: center;
+            padding: 80px 5%;
+            margin: 50px 5%;
+            border-radius: 30px;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+
+        .event-date {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--primary-orange);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .event-img {
+            width: 100%;
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .event-body {
+            padding: 1rem 1.2rem;
+        }
+
+        .event-body h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .event-body p {
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .modal-card {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 30px;
+            padding: 3rem;
+            border: 8px solid var(--bg-soft);
+        }
+
+        footer {
+            background: var(--bg-deep);
+            color: white;
+            padding: 5rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .footer-logo h3 { margin-bottom: 1.5rem; color: var(--primary-red); }
+        .footer-links h4 { margin-bottom: 1.5rem; color: var(--primary-orange); }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; opacity: 0.7; transition: 0.3s; cursor: pointer; }
+        .footer-links li:hover { opacity: 1; color: var(--primary-orange); }
+
+        .fade-up { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+            .vision-mission, .footer-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="UEP.png" alt="Logo" width="30">
+            University Of Eastern Pangasinan
+        </div>
+        <div class="nav-links">
+            <a href="#" style="color: var(--primary-red);">Home</a>
+            <a href="About.html">About</a>
+            <a href="Course.html">Courses</a>
+            <a href="Contact.html">Contact Us</a>
+            <a href="Admission.html">Admission</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content fade-up">
+            <h1>Empowering Minds, <br><span>Shaping the Future</span>.</h1>
+            <p>At the University of Eastern Pangasinan, we blend academic tradition with modern innovation to cultivate critical thinking and practical expertise. Our industry-aligned curricula and inclusive community empower students to turn their potential into meaningful impact. Here, education is a journey of growth designed to help you shape your future and contribute to global progress.</p>
+            <div class="enrollment-buttons" style="justify-content: flex-start;">
+                <a href="#discovery" class="btn">Explore Campus</a>
+            </div>
+        </div>
+        <div class="hero-visual fade-up">
+            <div class="video-container">
+                <video autoplay muted loop controls playsinline poster="poster.jpg">
+                    <source src="Video.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h2>4,500+</h2>
+            <p>Enrolled Students</p>
+        </div>
+        <div class="stat-item">
+            <h2>98%</h2>
+            <p>Board Passing Rate</p>
+        </div>
+        <div class="stat-item">
+            <h2>25+</h2>
+            <p>Academic Programs</p>
+        </div>
+        <div class="stat-item">
+            <h2>150+</h2>
+            <p>Expert Faculty</p>
+        </div>
+    </div>
+
+    <section class="programs-section fade-up">
+        <span class="section-tag">Academic Excellence</span>
+        <div class="programs-header">
+            <h2>Diverse Colleges Built for Your <span style="color:var(--primary-red)">Success</span></h2>
+            <a href="Course.html" class="btn btn-outline">View All Courses</a>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <h3>College of Engineering</h3>
+                <p style="margin-top:1rem">Innovating for a sustainable future through rigorous technical education and hands-on laboratory experiences.</p>
+            </div>
+            <div class="program-card">
+                <h3>College of Nursing</h3>
+                <p style="margin-top:1rem">Excellence in healthcare education, producing compassionate professionals recognized worldwide.</p>
+            </div>
+            <div class="program-card">
+                <h3>College of IT & CS</h3>
+                <p style="margin-top:1rem">Leading the digital revolution with cutting-edge training in AI, Cyber-security, and Software Development.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision-mission fade-up">
+        <div class="vm-img">
+            <img src="UEP2.png" alt="Campus Image">
+        </div>
+
+        <div class="vm-content">
+            <span class="section-tag">Our Identity</span>
+            <h2>Guided by Core Values</h2>
+            <div class="vm-card">
+                <h4>Our Mission</h4>
+                <p>University of Eastern Pangasinan is dedicated to producing highly competent and morally responsible UEPians through innovation, industry-focused education, sustainable research, and values-based curriculum. We commit to shaping ethical trailblazers bringing our principle-centered culture defining our values of Maka-Diyos, Marunong and Malinis.</p>
+            </div>
+            <div class="vm-card">
+                <h4>Our Vision</h4>
+                <p>A leading local university known to develop excellent and virtuous professionals who are catalysts of progress for both the local and global communities.</p>
+            </div>
+            <div class="vm-card">
+                <h4>Core Values</h4>
+                <p>
+                Uprightness,
+                Excellence,
+                Passion
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="enrollment fade-up">
+        <h2>Your Academic Journey Starts Here</h2>
+        <p style="margin-bottom: 2rem; opacity: 0.9;">Secure your slot for the upcoming semester through our streamlined digital portals.</p>
+        <div class="enrollment-buttons">
+            <a href="Admission.html" class="btn" style="background:white; color:var(--primary-red) !important;">New Student Portal</a>
+            <a href="Admission.html" class="btn btn-outline" style="border-color:white; color:white !important;">Old Student Portal</a>
+        </div>
+    </section>
+
+    <section class="section fade-up" id="discovery">
+        <span class="section-tag" style="text-align: center;">News & Updates</span>
+        <h2 style="text-align:center; margin-bottom: 4rem; font-size: 2.5rem;">Campus Highlights</h2>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-img">
+                    <img src="Left.jpg" alt="Tree Planting Event">
+                    <div class="event-date">JUL<br>30</div>
+                </div>
+                <div class="event-body">
+                    <h3>12th HCU National Conference</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">Participation in environmental sustainability initiatives with regional partners.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-img">
+                    <img src="Right.jpg" alt="Competency-Based">
+                    <div class="event-date">JUL<br>22</div>
+                </div>
+                <div class="event-body">
+                    <h3>UEP-CTE Training</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">Empowering our educators with modern, competency-based teaching methodologies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="portalModal">
+        <div class="modal-card">
+            
+            
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <h3>UEP</h3>
+                <p>Developing human potential and fostering growth through innovative education and community-driven initiatives.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li>Careers</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>info@uep.edu.ph</li>
+                    <li>Binalonan, Pangasinan</li>
+                    <li>(63) 970-383-7089</li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; opacity: 0.6; font-size: 0.8rem;">
+            <p>&copy; 2026 University of Eastern Pangasinan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        function openPortal() { document.getElementById('portalModal').classList.add('active'); }
+        function closePortal() { document.getElementById('portalModal').classList.remove('active'); }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.classList.remove('active');
+            }
+        };
+
+        const video = document.querySelector("video");
+        document.addEventListener("click", () => { video.muted = false; }, { once: true });
+    </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | University of Eastern Pangasinan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --primary-red: #A81C21;
+    --primary-red-hover: #8A151A;
+    --text-dark: #2D3436;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --primary-orange: #F39C12;
+    --bg-soft: #FAFAFA;
+    --text-light: #636E72;
+    --border-color: #EBEBEB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    padding-top: 80px;
+    background: var(--bg-soft);
+    color: var(--text-dark);
+}
+
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--primary-red);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items:center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover { 
+    color: var(--primary-red); 
+}
+
+.btn {
+    background:var(--primary-red);
+    color:white !important;
+    padding:0.6rem 1.5rem;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.hero {
+    margin-top:80px;
+    padding:80px 5%;
+    text-align:center;
+    background: linear-gradient(135deg,#A81C21,#630D10);
+    color:white;
+}
+
+.hero h1 {
+    font-size:3rem;
+    margin-bottom:1rem;
+}
+
+.hero p {
+    max-width:600px;
+    margin:auto;
+    opacity:0.9;
+}
+
+.section {
+    padding:80px 5%;
+}
+
+.about-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap:2rem;
+    margin-top:3rem;
+}
+
+.about-card {
+    background:white;
+    padding:2.5rem 2rem;
+    border-radius:20px;
+    border:1px solid var(--border-color);
+    transition:var(--transition);
+    position:relative;
+    overflow:hidden;
+}
+
+.about-card::before {
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:linear-gradient(90deg,#A81C21,#F39C12);
+}
+
+.about-card:hover {
+    transform:translateY(-10px);
+    box-shadow:0 25px 50px rgba(0,0,0,0.08);
+}
+
+.about-card h3 {
+    margin-bottom:1rem;
+    color:var(--primary-red);
+}
+
+.about-card p {
+    color:var(--text-light);
+    line-height:1.6;
+}
+
+.icon {
+    font-size:2rem;
+    margin-bottom:1rem;
+}
+
+footer {
+    background:#1A1A1A;
+    color:white;
+    text-align:center;
+    padding:2rem;
+    margin-top:50px;
+}
+
+.fade-up {
+    opacity:0;
+    transform:translateY(20px);
+    transition:0.8s;
+}
+
+.fade-up.visible {
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:900px){
+    .nav-links{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="UEP.png" width="30">
+        University Of Eastern Pangasinan
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#" style="color: var(--primary-red);">About</a>
+        <a href="Course.html">Courses</a>
+        <a href="Contact.html">Contact Us</a>
+        <a href="Admission.html">Admission</a>
+    </div>
+</nav>
+
+<section class="hero fade-up">
+    <h1>About Our University</h1>
+    <p>
+        Committed to excellence, innovation, and leadership —
+        shaping future professionals with purpose and integrity.
+    </p>
+</section>
+
+<section class="section fade-up">
+
+    <div class="about-grid">
+
+        <div class="about-card">
+            <div class="icon">🎯</div>
+            <h3>Mission</h3>
+            <p>
+                University of Eastern Pangasinan is dedicated to producing highly competent and morally responsible UEPians through innovation, industry-focused education, sustainable research, and values-based curriculum.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="icon">🌟</div>
+            <h3>Vision</h3>
+            <p>
+                A leading local university known to develop excellent and virtuous professionals who are catalysts of progress for both local and global communities.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="icon">💡</div>
+            <h3>Core Values</h3>
+            <p>
+                Uprightness<br>
+                Excellence<br>
+                Passion
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>&copy; 2026 University of Eastern Pangasinan. All Rights Reserved.</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
